@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 import '../Style/App.css';
 import CustomButton from '../Controller/CustomButton';
 import Header from '../Controller/Header';
+import Footer from '../Controller/Footer';
 import Product from '../Controller/Product';  // Import the Product component
 import LoginPopup from './LoginPopup';  // Import the LoginPopup component
 import ProductModel from '../Model/ProductModel';
+import WhyChooseUs from '../Controller/WhyChooseUs';
+import CustomerReviews from '../Controller/CustomerReviews';
 
 function App() {
   const handleClick = () => {
@@ -60,6 +63,13 @@ function App() {
           ))}
         </div>
       </div>
+      <div className="products-box">
+      <CustomerReviews/>
+      </div>
+      <div className="products-box">
+      <WhyChooseUs/>
+      </div>
+      <Footer/>
 
 {/* 
       Render the LoginPopup component if it's open
