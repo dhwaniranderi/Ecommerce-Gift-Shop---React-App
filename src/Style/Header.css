@@ -2,13 +2,21 @@
 
 /* Styling for the header */
 .site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #01012c;
-    color: #ffcc00;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  background-color: #01012C;
+  color: #FFCC00;
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Sticks the header to the top */
+  left: 0;
+  width: 100%; /* Ensures the header spans the entire width */
+  z-index: 1000; /* Ensures the header stays above other content */
+   }
+body {
+margin-top: 120px; /* Add space below the header, adjust value to your header height */
+}
   
   .site-header .logo h2 {
     margin: 0;
