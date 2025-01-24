@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Style/Header.css';  
 import CustomButton from './CustomButton';
+import COLORS from '../Assests/colors';
 
 function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
   // Handle logout
@@ -29,9 +30,10 @@ function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
 
           <CustomButton
           title='Login'
-          backgroundColor='#000000'
-          hoverBackgroundColor='yellow'
-          hoverTitleColor='red'
+          backgroundColor='#01012c'
+          titleColor='#ffcc00'
+          hoverBackgroundColor='#ffcc00'
+          hoverTitleColor='#01012c'
           height='50px'
           width='150px'
           >
