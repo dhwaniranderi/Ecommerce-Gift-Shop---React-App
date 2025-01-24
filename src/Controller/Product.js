@@ -14,10 +14,10 @@ function Product({ name, description, imgSrc, price }) {
       <h3>{name}</h3>
       <p>{description}</p> {/* This will display the description */}
       <p>{price}</p>
-      <Button 
+      <p><Button 
       onClick={handleBuyNow}
-      title = 'Buy Now'
-      />
+      title = 'Buy Now' width="100%"
+      /></p>
     </div>
   );
 }

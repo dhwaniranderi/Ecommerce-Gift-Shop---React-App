@@ -57,4 +57,75 @@
     background-color: #FFFFFF;
     color:#01012c;
   }
-  
+
+
+/* Welcome Message and Profile Icon CSS */
+/* Add this to your CSS file (e.g., Header.css) */
+.logged-in-section {
+  display: flex;
+  align-items: center;
+  position: relative; /* Important to position the dropdown menu relative to this container */
+}
+
+.welcome-message {
+  margin-right: 10px;
+  font-size: 16px;
+  color: #ffcc00;
+  cursor: pointer; /* Make it clear the user can click on it */
+}
+
+.profile-icon {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* This makes the container a circle */
+  background-color: #01012c; /* Background color for the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffcc00; /* Icon color */
+  font-size: 20px; /* Adjust icon size */
+  cursor: pointer;
+}
+
+.profile-icon:hover{
+  background-color: #ffcc00; /* Change color on hover */
+  color: #01012c; /* Change icon color on hover */
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  position: absolute;
+  top: 65px; /* Adjust based on your layout */
+  right: 0; /* Position dropdown aligned with the right side */
+  background-color: #01012c;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  padding: 10px 0;
+  width: 200px;
+  text-align: left;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #ffcc00;
+  font-size: 16px;
+}
+
+.dropdown-menu li:hover {
+  background-color: #ffcc00;
+}
+
+.dropdown-menu li:hover a {
+  color: #01012c;
+}
