@@ -1,0 +1,151 @@
+/* Styles for the popup overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  /* Popup container */
+  .popup-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    max-width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideUp 0.4s ease;
+  }
+  
+  /* Header for the popup */
+  .popup-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Tab styles */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .tabs button.active {
+    border-bottom: 2px solid #007BFF;
+    color: #007BFF;
+  }
+  
+  .tabs button:hover {
+    color: #0056b3;
+  }
+  
+  /* Styling for form fields */
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 90%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  /* Submit button style */
+  .submit-btn {   
+    width: 100%;
+    display: inline-block;
+    background-color: #01012c;
+    color: white;
+    border-radius: 5px;
+    padding: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .submit-btn:hover {
+    /* background-color: #0056b3; */
+    background-color: #ffcc00; 
+    color: #000000;
+  }
+  
+  /* Close button style */
+  .close-btn {
+    margin-top: 10px;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .close-btn:hover {
+    color: #007BFF;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 400px) {
+    .popup-container {
+      width: 90%;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
