@@ -1,0 +1,38 @@
+.why-choose-us {
+    margin-top: 40px;
+    padding: 30px;
+    background: #F9F9F9;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+.why-choose-us h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+.reasons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.reason-card {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+}
+.reason-card:hover {
+    transform: translateY(-10px);
+}
+.reason-card h2 {
+    font-size: 1.8rem;
+    color: #FF6600;
+}
+.reason-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+}

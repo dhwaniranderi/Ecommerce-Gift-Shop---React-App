@@ -1,32 +1,35 @@
 import React, { useState } from 'react';
 import '../Style/LoginPopup.css'; // Add your styles in this CSS file
 import CustomButton from '../Controller/CustomButton'; // Import the Button component
+import TabButton from '../Controller/TabButton'; // Import the Tab Button component
 
-function LoginPopup({ isOpen, onClose }) {
+function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [activeTab, setActiveTab] = useState('login'); // 'login' or 'signup'
-
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility toggle
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Separate state for confirm password visibility
 
   // hardcoded login credentials 
   const loginCredentials = {
     email: 'admin@gmail.com',
     password: 'password',
   };
+
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-  
+
     // Check if the entered credentials match the hardcoded credentials
     if (email === loginCredentials.email && password === loginCredentials.password) {
       console.log('Login successful');
+      onLoginSuccess(); // Notify parent component of successful login
       onClose(); // Close the popup after successful login
     } else {
       console.log('Invalid email or password');
       alert('Invalid email or password. Please try again.');
     }
   };
-  
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
@@ -41,12 +44,12 @@ function LoginPopup({ isOpen, onClose }) {
           <h2>{activeTab === 'login' ? 'Login' : 'Sign Up'}</h2>
           
           <div className="tabs">
-            <CustomButton 
+            <TabButton 
               isActive={activeTab === 'login'} 
               label="Login" 
               onClick={() => setActiveTab('login')} 
             />
-            <CustomButton 
+            <TabButton 
               isActive={activeTab === 'signup'} 
               label="Sign Up" 
               onClick={() => setActiveTab('signup')} 
@@ -68,16 +71,33 @@ function LoginPopup({ isOpen, onClose }) {
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="Enter your password"
-                />
+                <div className="password-container">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="Enter your password"
+                  />
+                  <i
+                    className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ cursor: 'pointer' }}
+                  ></i>
+                </div>
               </div>
-              <CustomButton type="submit" className="submit-btn">Login</CustomButton>
+             
+              <CustomButton
+                title='Login'
+                backgroundColor='#01012c'
+                titleColor='#ffcc00'
+                hoverTitleColor='#01012c'
+                hoverBackgroundColor='#ffcc00'
+                height='50px'
+                width='150px'
+              >
+              </CustomButton>
             </form>
           ) : (
             <form onSubmit={handleSignUpSubmit}>
@@ -94,31 +114,57 @@ function LoginPopup({ isOpen, onClose }) {
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="Enter your password"
-                />
+                <div className="password-container">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="Enter your password"
+                  />
+                  <i
+                    className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ cursor: 'pointer' }}
+                  ></i>
+                </div>
               </div>
               <div className="form-group">
                 <label htmlFor="confirmPassword">Confirm Password</label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                  placeholder="Confirm your password"
-                />
+                <div className="password-container">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                    placeholder="Confirm your password"
+                  />
+                  <i
+                    className={`fa ${showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    style={{ cursor: 'pointer' }}
+                  ></i>
+                </div>
+
               </div>
-              <CustomButton type="submit" className="submit-btn">Sign Up</CustomButton>
+            
+              <CustomButton
+                title='Sign Up'
+                backgroundColor='#01012c'
+                titleColor='#ffcc00'
+                hoverTitleColor='#01012c'
+                hoverBackgroundColor='#ffcc00'
+                height='50px'
+                width='150px'
+              >
+              </CustomButton>
             </form>
           )}
 
-          <button onClick={onClose} className="close-btn">Close</button>
+          <button onClick={onClose} className="cancel-btn">×</button>
+
         </div>
       </div>
     )
