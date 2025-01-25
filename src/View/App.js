@@ -9,6 +9,7 @@ import ProductModel from '../Model/ProductModel';
 import WhyChooseUs from '../Controller/WhyChooseUs';
 import CustomerReviews from '../Controller/CustomerReviews';
 import CheckoutPage from '../Controller/CheckoutPage';
+import Cart from '../Controller/cart';
 
 function AppContent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,7 +26,7 @@ function AppContent() {
   ];
 
   const openLoginPopup = () => {
-    setLoginPopupOpen(true);
+    setLoginPopupOpen(true);  
   };
 
   const closeLoginPopup = () => {
@@ -80,6 +81,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AppContent />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/cart" element={<Cart/>} />
       </Routes>
     </Router>
   );
