@@ -1,0 +1,143 @@
+/* Styles for the popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Background dimming */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Make sure it's above other content */
+}
+
+/* Popup container */
+.popup-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #01012c;
+}
+
+/* Close button style */
+.close-btn {
+  background-color: #01012c;
+  color: #ffcc00;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.close-btn:hover {
+  background-color: #ffcc00;
+  color: #01012c;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #01012c;
+
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Submit button style */
+.submit-btn {   
+  width: 100%;
+  display: inline-block;
+  background-color: #01012c;
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  /* background-color: #0056b3; */
+  background-color: #ffcc00; 
+  color: #000000;
+}
+
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .popup-container {
+    width: 90%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Add styles for the password input and the eye icon */
+.password-container {
+position: relative;
+width: 100%;
+}
+
+.password-container input {
+width: calc(100% - 30px); /* Adjust the width to make space for the icon */
+padding: 10px;
+font-size: 14px;
+border: 1px solid #ccc;
+border-radius: 4px;
+margin-top: 5px;
+}
+
+.password-container i {
+position: absolute;
+top: 50%;
+right: 10px;
+transform: translateY(-50%);
+font-size: 18px;
+color: #888;
+}
+
