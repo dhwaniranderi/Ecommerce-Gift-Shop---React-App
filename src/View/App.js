@@ -8,7 +8,7 @@ import LoginPopup from './LoginPopup';
 import ProductModel from '../Model/ProductModel';
 import WhyChooseUs from '../Controller/WhyChooseUs';
 import CustomerReviews from '../Controller/CustomerReviews';
-import CheckoutPage from '../Controller/CheckoutPage';
+import CheckoutPage from '../View/CheckoutPage';
 import Cart from '../Controller/cart';
 
 function AppContent() {
@@ -39,7 +39,7 @@ function AppContent() {
 
   const handleBuyNow = () => {
     if (isLoggedIn) {
-      navigate('/checkout');
+      navigate('/cart');
     } else {
       openLoginPopup();
     }

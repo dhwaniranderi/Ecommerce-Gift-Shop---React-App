@@ -4,6 +4,7 @@ import Header from '../Controller/Header';
 import Footer from '../Controller/Footer';
 import Button from '../Controller/CustomButton';
 import ProductModel from '../Model/ProductModel';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const products = [
   { ...ProductModel, id: 1, name: 'Comfortable Slippers', description: 'Soft and cozy slippers, perfect for lounging at home or as a thoughtful gift.', imgSrc: './assets/Product1.jpg', price: 55.50 },
@@ -16,6 +17,7 @@ const products = [
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
@@ -29,14 +31,19 @@ const Cart = () => {
     .reduce((total, item) => total + item.price, 0)
     .toFixed(2);
 
+  const handleCheckout = () => {
+    // Navigate to the checkout page
+    navigate('/checkout');
+  };
+
   return (
     <div>
       <div className="new-cart-container">
         <Header />
         <div className="new-cart-header">
-        <h1>Your Shopping Cart</h1>
-        <p>Manage your items and proceed to checkout when you're ready!</p>
-      </div>
+          <h1>Your Shopping Cart</h1>
+          <p>Manage your items and proceed to checkout when you're ready!</p>
+        </div>
         <div className="new-cart-items">
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
@@ -57,10 +64,15 @@ const Cart = () => {
         {cartItems.length > 0 && (
           <div className="new-total-price">
             <h3>Total: ${totalPrice}</h3>
-            <Button title="Proceed to Checkout" width="200px" className="new-checkout-button" />
+            <Button
+              title="Proceed to Checkout"
+              width="200px"
+              className="new-checkout-button"
+              onClick={handleCheckout} // Call handleCheckout on click
+            />
           </div>
         )}
-        
+
         <h3>Available Products</h3>
         <div className="new-product-list">
           {products.map((product) => (
@@ -69,7 +81,7 @@ const Cart = () => {
               <h4>{product.name}</h4>
               <p>${product.price.toFixed(2)}</p>
               <p>{product.description}</p>
-              <Button title='Add to cart' onClick={() => addToCart(product)} />
+              <Button title="Add to cart" onClick={() => addToCart(product)} />
             </div>
           ))}
         </div>
