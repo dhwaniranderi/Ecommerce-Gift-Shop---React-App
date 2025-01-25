@@ -1,0 +1,211 @@
+/* Checkout Header Styling */
+.new-checkout-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.new-checkout-header h1 {
+    font-size: 2.5rem;
+    color: #01012c;
+    margin-bottom: 10px;
+}
+
+.new-checkout-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Checkout Grid Layout */
+.checkout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Product Summary Card */
+.product-summary-card {
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.product-summary-card h3 {
+    font-size: 2rem;
+    color: #01012c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product-summary-details {
+    margin-bottom: 20px;
+}
+
+.product-card {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.product-image {
+    width: 120px;
+    height: 120px;
+    margin-right: 15px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-info {
+    flex-grow: 1;
+}
+
+.product-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.product-quantity,
+.product-price {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.product-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #01012c;
+    margin-top: 10px;
+}
+
+.total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    color: #246c00;
+}
+
+/* Checkout Form Card */
+.new-checkout-form {
+    padding: 35px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.new-checkout-form:hover {
+    transform: translateY(-5px);
+}
+
+.new-checkout-form label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.new-checkout-form input {
+    width: 100%;
+    padding: 15px 0px 15px 15px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.new-checkout-form input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.new-form-group {
+    margin-bottom: 25px;
+}
+
+.new-form-row {
+    display: flex;
+    gap: 25px;
+}
+
+.new-form-row .new-form-group {
+    flex: 1;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Modal Heading */
+  .modal-content h2 {
+    color: #28a745;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Modal Image */
+  .modal-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  /* Modal Close Button */
+  .modal-close-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-close-button:hover {
+    background-color: #218838;
+  }
+  
