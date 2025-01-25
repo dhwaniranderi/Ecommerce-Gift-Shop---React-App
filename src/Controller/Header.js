@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../Style/Header.css';  
-import CustomButton from './CustomButton'; // Assuming this is imported as needed
+import { Link } from 'react-router-dom'; // Import Link component from react-router-dom
+import '../Style/Header.css';
+import CustomButton from './CustomButton';
 
 function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -39,8 +40,8 @@ function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
       </div>
       <nav>
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/cart">Cart</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/cart">Cart</Link></li> {/* Updated to Link component */}
         </ul>
       </nav>
 
