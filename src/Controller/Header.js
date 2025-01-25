@@ -55,8 +55,8 @@ function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
       </div>
       <nav>
         <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-          <li><Link to="/cart">Cart</Link></li> {/* Updated to Link component */}
+        <li><Link to="/">Home</Link></li> 
+        <li><Link to="/cart">Cart</Link></li> 
         </ul>
       </nav>
 
