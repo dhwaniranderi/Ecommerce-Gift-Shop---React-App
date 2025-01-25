@@ -26,7 +26,7 @@ function AppContent() {
   ];
 
   const openLoginPopup = () => {
-    setLoginPopupOpen(true);
+    setLoginPopupOpen(true);  
   };
 
   const closeLoginPopup = () => {
