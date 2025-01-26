@@ -34,7 +34,7 @@
 
 /* Cart items section */
 .new-cart-items {
-    margin-bottom: 40px; /* Adds space below the cart items section */
+    margin-bottom: 10px; /* Adds space below the cart items section */
 }
 
 /* Individual cart item styling */
@@ -59,8 +59,8 @@
 
 /* Cart item image styling */
 .new-cart-item img {
-    width: 90px; /* Sets width of the image */
-    height: 90px; /* Sets height of the image */
+    width: 100px; /* Sets width of the image */
+    height: 100px; /* Sets height of the image */
     border-radius: 10px; /* Rounds the corners of the image */
     object-fit: cover; /* Ensures image covers the space without stretching */
 }
@@ -85,7 +85,7 @@
 }
 
 /* Remove item button styling */
-.new-cart-item button {
+.new-cart-item .button {
     background-color: #DC3545; /* Red background for the button */
     color: #fff; /* White text on the button */
     border: none; /* Removes default border */
@@ -97,18 +97,24 @@
 }
 
 /* Hover effect for remove button */
-.new-cart-item button:hover {
+.new-cart-item .button:hover {
     background-color: #C82333; /* Darker red on hover */
     transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
 
+.new-cart-item h4{
+    text-align: left;
+    color: #28a745; /* text color for the price */
+}
+
+
 /* Empty cart message styling */
 .new-cart-items p {
     text-align: center; /* Centers the message */
-    font-size: 1.8rem; /* Sets font size for the message */
+    font-size: 1.0rem; /* Sets font size for the message */
     color: #999; /* Light gray color for the message */
     font-weight: bold; /* Makes the message bold */
-    margin-top: 20px; /* Adds space above the message */
+ 
 }
 
 /* Total price section */
@@ -183,10 +189,16 @@
 }
 
 /* Product title styling */
-.new-product h4 {
+.new-product h3 {
     font-size: 1.6rem; /* Sets font size for the title */
     margin-bottom: 10px; /* Adds space below the title */
     color: #333; /* Dark text color for the title */
+}
+
+/* Product price styling */
+.new-product h4 {
+    margin-bottom: 10px; /* Adds space below the title */
+    color: #28a745; /* text color for the price */
 }
 
 /* Product description styling */

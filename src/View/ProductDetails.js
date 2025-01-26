@@ -5,16 +5,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import Header from "../Controller/Header";
 import Footer from "../Controller/Footer";
 import AddComments from "../Controller/AddComments";
+import QuantityControl from '../Controller/Quantitycontrol';
 
 const ProductDetails = () => {
   const { id } = useParams(); // Get the product ID from the URL using useParams hook
   const navigate = useNavigate(); // Initialize useNavigate hook to navigate between pages
 
   const [product, setProduct] = useState(null); // State to store the fetched product details
+  const [quantity, setQuantity] = useState(1); // State to store the quantity of the product
 
   useEffect(() => {
     // Fetch the product details using the ID from URL
-    // In a real app, this would be a fetch call to an API or database
     const productData = [
       {
         id: 1,
@@ -68,8 +69,26 @@ const ProductDetails = () => {
   }, [id]);
 
   // Function to handle "Add to Cart" button click
-  const handleAddToCart = () => {
-    navigate("/cart"); // Navigate to the Cart page when clicked
+  const handleAddToCart = (productId, quantity) => {
+    // Only pass valid data that can be cloned (e.g., numbers, strings, arrays, etc.)
+    navigate("/cart", {
+      state: {
+        productId: productId,
+        quantity: quantity,
+      },
+    });
+  };
+  
+  // Handle increase in quantity
+  const increaseQuantity = () => {
+    setQuantity(prevQuantity => prevQuantity + 1);
+  };
+
+  // Handle decrease in quantity (minimum 1)
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(prevQuantity => prevQuantity - 1);
+    }
   };
 
   if (!product) {
@@ -90,7 +109,14 @@ const ProductDetails = () => {
             <h2 className="product-title">{product.name}</h2> {/* Display product name */}
             <p className="product-description-text">{product.description}</p> {/* Display product description */}
             <p className="product-price-text">{product.price}</p> {/* Display product price */}
-            <Button title="Add to cart" onClick={handleAddToCart} /> {/* Add to cart button */}
+
+            <p><QuantityControl
+                    quantity={quantity}
+                    onIncrease={() => increaseQuantity()}
+                    onDecrease={() => decreaseQuantity()}
+                  /></p>
+
+            <Button title="Add to cart" onClick={(e) => handleAddToCart(product.id, quantity, e)} /> {/* Add to cart button */}
           </div>
         </div>
 
@@ -137,7 +163,7 @@ const ProductDetails = () => {
           </ul>
         </div>
 
-        <AddComments/> {/* Display the comment section for product reviews */}
+        <AddComments /> {/* Display the comment section for product reviews */}
 
         {/* Related Products Section */}
         <div className="related-products-section">
@@ -146,7 +172,7 @@ const ProductDetails = () => {
             <img src="../assets/Product2.jpg" alt="Gift Item 2" />
             <h4>Gift Item 2</h4>
             <p className="related-product-price">$30.00</p>
-            <Button title="Add to cart" onClick={handleAddToCart} /> {/* Add to cart for related items */}
+            <Button title="Add to cart" onClick={handleAddToCart} />
           </div>
           <div className="related-product-item">
             <img src="../assets/Product3.jpg" alt="Gift Item 3" />
@@ -168,6 +194,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+
       <Footer /> {/* Display the footer of the page */}
     </div>
   );

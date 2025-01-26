@@ -103,7 +103,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AppContent />} /> {/* Route for the main content */}
         <Route path="/checkout" element={<CheckoutPage />} /> {/* Route for checkout page */}
-        <Route path="/cart" element={<Cart />} /> {/* Route for the cart page */}
+        <Route path="/cart" element={<Cart  />} /> {/* Route for the cart page */}
         <Route path="/product/:id" element={<ProductDetails />} />  {/* Route for product details, dynamic based on product id */}
       </Routes>
     </Router>

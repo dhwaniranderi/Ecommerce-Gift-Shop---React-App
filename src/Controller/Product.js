@@ -11,12 +11,12 @@ function Product({ id, name, description, imgSrc, price, handleBuyNow }) {
     navigate(`/product/${id}`);
   };
 
-  return (
+    return (
     <div className="product" onClick={handleProductClick}>
-      <img src={imgSrc} alt={name} />
-      <h3>{name}</h3>
+      <img src={imgSrc} alt={name}  />
+      <p><h2>{name}</h2></p>
       <p>{description}</p> {/* This will display the description */}
-      <p>{price}</p>
+      <p><h3>{price}</h3></p>
       <p>
         <Button 
           onClick={handleBuyNow} 

@@ -3,6 +3,8 @@ import '../Style/LoginPopup.css'; // Add your styles in this CSS file
 import CustomButton from '../Controller/CustomButton'; // Import the Button component
 import TabButton from '../Controller/TabButton'; // Import the Tab Button component
 import AlertPopup from '../Controller/AlertPopup.js'; // Import the Alert popup component
+
+
 function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,10 +14,13 @@ function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Separate state for confirm password visibility
   const [alert, setAlert] = useState(''); // State for error message
   // hardcoded login credentials
+
+
   const loginCredentials = {
     email: 'admin@gmail.com',
     password: 'password',
   };
+
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     // Check if the entered credentials match the hardcoded credentials
@@ -28,11 +33,13 @@ function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
       setAlert('Invalid email or password. Please try again'); // Set the error message
     }
   };
+
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
     console.log('Signing up with:', email, password);
     onClose(); // Close the popup after signup attempt
   };
+
   return (
     isOpen && (
       <div className="popup-overlay">

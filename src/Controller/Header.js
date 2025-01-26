@@ -1,56 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import '../Style/Header.css';
-import CustomButton from './CustomButton'; // Assuming this is imported as needed
-import UpdateProfilePopup from '../View/UpdateProfile.js'; // Import the popup component
-import AlertPopup from '../Controller/AlertPopup.js'; // Import the Alert popup component
-function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
+import CustomButton from './CustomButton';
+import UpdateProfilePopup from '../View/UpdateProfile.js';
+import AlertPopup from '../Controller/AlertPopup.js';
+import LoginPopup from '../View/LoginPopup.js'; // Import the Login popup component
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+
+function Header({ isLoggedIn, setIsLoggedIn }) {
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [showUpdateProfilePopup, setShowUpdateProfilePopup] = useState(false); // State for controlling popup visibility
-  const [alert, setAlert] = useState(''); // State for Alert message
+  const [showUpdateProfilePopup, setShowUpdateProfilePopup] = useState(false);
+  const [alert, setAlert] = useState('');
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const navigate = useNavigate();
+
   // Handle logout
   const handleLogout = () => {
-    setIsLoggedIn(false); // Set logged-in state to false on logout
-    setDropdownVisible(false); // Close the dropdown after logout
+    setIsLoggedIn(false);
+    setDropdownVisible(false);
   };
+
   // Toggle the dropdown visibility
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
+
   // Handle Cart Click: Show popup if not logged in
   const handleCartClick = () => {
-    if (!isLoggedIn) {
-      // setShowLoginPopup(true); // Show the login required popup
-      // show
-      console.log('Login Required. Please Login First.');
-      setAlert('Login Required. Please Login First.'); // Set the error message
-      return;
+    if (isLoggedIn) {
+      navigate('/checkout');
     } else {
-      // Redirect to the cart page if logged in (You can use react-router here for navigation)
-      window.location.href = "/cart"; // This is a basic navigation, replace with react-router navigation if needed
+      setIsLoginPopupOpen(true);
     }
   };
-  // Close the dropdown if clicked outside of it
-  const handleClickOutside = (e) => {
-    if (!e.target.closest('.profile-icon') && e.target.closest('.welcome-message') && !e.target.closest('.dropdown-menu') && !e.target.closest('.welcome-message')) {
-      setDropdownVisible(false);
-    }
+
+  const closeLoginPopup = () => {
+    setIsLoginPopupOpen(false);
   };
-  // Set up the event listener to close the dropdown if clicked outside
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
-  // Handle opening the update profile popup
-  const openUpdateProfilePopup = () => {
-    setShowUpdateProfilePopup(true); // Open the popup
-    setDropdownVisible(false); // Close the dropdown
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
   };
-  // Handle closing the update profile popup
-  const closeUpdateProfilePopup = () => {
-    setShowUpdateProfilePopup(false); // Close the popup
-  };
+
   return (
     <header className="site-header">
       <div className="logo">
@@ -59,26 +49,21 @@ function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
       <nav>
         <ul className="nav-links">
           <li><a href="/">Home</a></li>
-           <li><a href="#" onClick={handleCartClick}>Cart</a></li>
+          <li><a href="#" onClick={handleCartClick}>Cart</a></li>
         </ul>
       </nav>
+
       <div className="login-button">
-        {/* If logged in, show the "Welcome Admin" message and Profile Icon */}
         {isLoggedIn ? (
           <div className="logged-in-section">
-            {/* Make "Welcome Admin" clickable to toggle dropdown */}
-            <span className="welcome-message" onClick={toggleDropdown}>
-              Welcome Admin
-            </span>
-            {/* Profile Icon with dropdown */}
+            <span className="welcome-message" onClick={toggleDropdown}>Welcome Admin</span>
             <div className="profile-icon" onClick={toggleDropdown}>
-              <i className="fa fa-user"></i> {/* Font Awesome User Icon */}
+              <i className="fa fa-user"></i>
             </div>
-            {/* Dropdown Menu */}
             {dropdownVisible && (
               <div className="dropdown-menu">
                 <ul>
-                <li onClick={openUpdateProfilePopup}>
+                  <li onClick={() => setShowUpdateProfilePopup(true)}>
                     <a href="#">Update Profile</a>
                   </li>
                   <li onClick={handleLogout}><a href="#">Logout</a></li>
@@ -95,17 +80,22 @@ function Header({ isLoggedIn, setIsLoggedIn, openLoginPopup }) {
             hoverBackgroundColor='#FFCC00'
             height='50px'
             width='150px'
-            onClick={openLoginPopup}
+            onClick={() => setIsLoginPopupOpen(true)}
           />
         )}
       </div>
-      {/* Conditionally render the UpdateProfilePopup */}
-      {showUpdateProfilePopup && (
-        <UpdateProfilePopup onClose={closeUpdateProfilePopup} />
-      )}
-   {/* If there's an error, show the ErrorPopup */}
-   {alert && <AlertPopup message={alert} onClose={() => setAlert('')} />}
+
+      {showUpdateProfilePopup && <UpdateProfilePopup onClose={() => setShowUpdateProfilePopup(false)} />}
+      {alert && <AlertPopup message={alert} onClose={() => setAlert('')} />}
+
+      <LoginPopup
+        isOpen={isLoginPopupOpen}
+        onClose={closeLoginPopup}
+        onLoginSuccess={handleLoginSuccess}
+        isComingFromLogin={false} // Pass false here if the user is redirected from the cart
+      />
     </header>
   );
 }
+
 export default Header;

@@ -43,3 +43,9 @@
   height: 400px; /* Set a fixed height for the image */
   border-radius: 10px; /* Rounded corners for the image */
 }
+
+
+.product h3 {
+  color:#28a745;
+}
+

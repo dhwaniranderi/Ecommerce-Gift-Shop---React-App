@@ -69,16 +69,14 @@
   font-size: 16px; /* Font size */
   cursor: pointer; /* Pointer cursor on hover */
   margin: 0 5px; /* Margin between buttons */
+  color:black;
 }
 
 .tabs button.active {
   border-bottom: 2px solid #007BFF; /* Blue underline for active tab */
-  color: #007BFF; /* Blue color for active tab */
 }
 
-.tabs button:hover {
-  color: #0056b3; /* Darker blue on hover */
-}
+
 
 /* Styling for form fields */
 .form-group {
