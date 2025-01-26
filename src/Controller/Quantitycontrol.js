@@ -7,7 +7,7 @@ const QuantityControl = ({ quantity, onIncrease, onDecrease }) => {
     <div className="quantity-container">
     <button className="quantity-btn" onClick={onDecrease}> - </button>
     <input
-      type="number"
+      type="text"
       value={quantity}
       readOnly
       className="quantity-input"

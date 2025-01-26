@@ -20,6 +20,8 @@ const products = [
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [isLoginPopupOpen, setLoginPopupOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const [userLoggedIn, setUserLoggedIn] = useState(false); // State to track user login status
   const [showLoginPopup, setShowLoginPopup] = useState(false); // State to control the login popup
   const navigate = useNavigate();
@@ -82,6 +84,10 @@ const Cart = () => {
     setShowLoginPopup(false); // Close the popup after login
   };
 
+  const openLoginPopup = () => {
+    setLoginPopupOpen(true);  
+  };
+
   const closeLoginPopup = () => {
     setShowLoginPopup(false);
   };
@@ -89,7 +95,8 @@ const Cart = () => {
   return (
     <div>
       <div className="new-cart-container">
-        <Header />
+
+    <Header isLoggedIn={userLoggedIn} setIsLoggedIn={setUserLoggedIn} openLoginPopup={openLoginPopup} />
         <div className="new-cart-header">
           <h1>Your Shopping Cart</h1>
           <p>Manage your items and proceed to checkout when you're ready!</p>
