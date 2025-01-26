@@ -20,7 +20,7 @@ function Product({ id, name, description, imgSrc, price, handleBuyNow }) {
       <p>
         <Button 
           onClick={handleBuyNow} 
-          title='Add to Cart' 
+          title='Show Details' 
           width="100%" 
         />
       </p>
