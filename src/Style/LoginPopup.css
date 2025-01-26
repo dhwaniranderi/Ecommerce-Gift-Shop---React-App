@@ -1,5 +1,6 @@
 /* Style for the popup container */
 .popup-container {
+  text-align: center;
   position: relative; /* Positioning context for the cancel button */
   width: 400px; /* Width of the popup container */
   padding: 20px; /* Padding inside the popup */
@@ -82,6 +83,7 @@
 .form-group {
   margin-bottom: 15px; /* Margin below form fields */
   text-align: left; /* Align label text to the left */
+  align-items: center;
 }
 
 .form-group label {
@@ -107,10 +109,19 @@ input[type="password"]:focus {
   outline: none; /* Remove outline */
 }
 
+.button-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px; /* Add some spacing above the button */
+  border: 0px solid black;
+}
+
 /* Submit button style */
 .submit-btn {
   width: 100%; /* Full width button */
-  display: inline-block; /* Inline-block for layout */
+  display: flex;
+  justify-content: center;
   background-color: #01012c; /* Background color */
   color: white; /* Text color */
   border-radius: 5px; /* Rounded corners */

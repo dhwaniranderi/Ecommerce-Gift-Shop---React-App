@@ -5,7 +5,7 @@ import TabButton from '../Controller/TabButton'; // Import the Tab Button compon
 import AlertPopup from '../Controller/AlertPopup.js'; // Import the Alert popup component
 
 
-function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
+function LoginPopup({ isOpen, onClose,  onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -88,6 +88,7 @@ function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
                   ></i>
                 </div>
               </div>
+              <div className="button-container">
               <CustomButton
                 title='Login'
                 backgroundColor='#01012C'
@@ -98,6 +99,7 @@ function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
                 width='150px'
               >
               </CustomButton>
+              </div>
             </form>
           ) : (
             <form onSubmit={handleSignUpSubmit}>
@@ -148,6 +150,7 @@ function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
                   ></i>
                 </div>
               </div>
+              <div className="button-container">
               <CustomButton
                 title='Sign Up'
                 backgroundColor='#01012C'
@@ -158,6 +161,7 @@ function LoginPopup({ isOpen, onClose, onLoginSuccess }) {
                 width='150px'
               >
               </CustomButton>
+              </div>
             </form>
           )}
           <button onClick={onClose} className="cancel-btn">×</button>

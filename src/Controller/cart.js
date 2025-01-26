@@ -18,29 +18,26 @@ const products = [
   { ...ProductModel, id: 6, name: 'Gift Item 6', description: 'Second gift item', imgSrc: './assets/Product6.jpg', price: 22.50 },
 ];
 
-const Cart = () => {
+const Cart = ({ isLoggedIn, setIsLoggedIn }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [isLoginPopupOpen, setLoginPopupOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
-  const [userLoggedIn, setUserLoggedIn] = useState(false); // State to track user login status
-  const [showLoginPopup, setShowLoginPopup] = useState(false); // State to control the login popup
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   // Extract productId and quantity from the location state passed from navigate
   const { productId, quantity } = location.state || {};
 
+  // Initialize the cart with the passed product if any
   useEffect(() => {
     if (productId && quantity) {
-      // Find product based on productId
       const product = products.find(item => item.id === productId);
       if (product) {
-        // Add the product to the cart with the specified quantity
-        setCartItems([{ ...product, quantity: quantity }]);
+        setCartItems([{ ...product, quantity }]);
       }
     }
   }, [productId, quantity]);
 
+  // Add product to cart or increase quantity if already exists
   const addToCart = (product) => {
     const existingItem = cartItems.find(item => item.id === product.id);
     if (existingItem) {
@@ -50,57 +47,52 @@ const Cart = () => {
     }
   };
 
+  // Remove product from cart
   const removeFromCart = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
 
+  // Increase product quantity in the cart
   const increaseQuantity = (id) => {
     setCartItems(cartItems.map(item => item.id === id ? { ...item, quantity: item.quantity + 1 } : item));
   };
 
+  // Decrease product quantity in the cart
   const decreaseQuantity = (id) => {
     setCartItems(cartItems.map(item => item.id === id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item));
   };
 
+  // Calculate the total price
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 
+  // Handle checkout
   const handleCheckout = () => {
-    if (userLoggedIn) {
-     // Pass cart items (ID and quantity) to the checkout page
-     navigate('/checkout', {
-      state: {
-        cartItems: cartItems, // Passing the items in the cart (ID and quantity)
-      },
-    });
+    if (isLoggedIn) {
+      navigate('/checkout', { state: { cartItems, isLoggedIn } });
     } else {
-      // Show login popup if the user is not logged in
       setShowLoginPopup(true);
     }
   };
 
+  // Simulate user login (replace with real logic)
   const loginUser = () => {
-    // Simulate a login (you would replace this with actual login logic)
-    setUserLoggedIn(true);
-    setShowLoginPopup(false); // Close the popup after login
-  };
-
-  const openLoginPopup = () => {
-    setLoginPopupOpen(true);  
-  };
-
-  const closeLoginPopup = () => {
+    setIsLoggedIn(true);
     setShowLoginPopup(false);
   };
 
+  const openLoginPopup = () => setShowLoginPopup(true);
+  const closeLoginPopup = () => setShowLoginPopup(false);
+
   return (
     <div>
-      <div className="new-cart-container">
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} openLoginPopup={openLoginPopup} />
 
-    <Header isLoggedIn={userLoggedIn} setIsLoggedIn={setUserLoggedIn} openLoginPopup={openLoginPopup} />
+      <div className="new-cart-container">
         <div className="new-cart-header">
-          <h1>Your Shopping Cart</h1>
-          <p>Manage your items and proceed to checkout when you're ready!</p>
+          <h1>{isLoggedIn ? 'Welcome to your Cart!' : 'Your Shopping Cart'}</h1>
+          <p>{isLoggedIn ? 'Manage your items and proceed to checkout when you are ready!' : 'Please login to proceed with your order.'}</p>
         </div>
+
         <div className="new-cart-items">
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
@@ -109,11 +101,13 @@ const Cart = () => {
                 <div className="new-item-details">
                   <h3>{item.name}</h3>
                   <p><h4>${(item.price * item.quantity).toFixed(2)}</h4></p>
-                  <p><QuantityControl
-                    quantity={item.quantity}
-                    onIncrease={() => increaseQuantity(item.id)}
-                    onDecrease={() => decreaseQuantity(item.id)}
-                  /></p>
+                  <p>
+                    <QuantityControl
+                      quantity={item.quantity}
+                      onIncrease={() => increaseQuantity(item.id)}
+                      onDecrease={() => decreaseQuantity(item.id)}
+                    />
+                  </p>
                 </div>
                 <button className="button" onClick={() => removeFromCart(item.id)}>Remove</button>
               </div>
@@ -130,7 +124,7 @@ const Cart = () => {
               title="Proceed to Checkout"
               width="200px"
               className="new-checkout-button"
-              onClick={handleCheckout} // Handle checkout click
+              onClick={handleCheckout}
             />
           </div>
         )}
@@ -148,6 +142,7 @@ const Cart = () => {
           ))}
         </div>
       </div>
+
       <Footer />
 
       {/* Login Popup */}
@@ -155,7 +150,7 @@ const Cart = () => {
         <LoginPopup
           isOpen={showLoginPopup}
           onClose={closeLoginPopup}
-          onLoginSuccess={loginUser} // Pass the login success handler to LoginPopup
+          onLoginSuccess={loginUser}
         />
       )}
     </div>

@@ -108,7 +108,7 @@ const Comments = ({ productId }) => {
           <div className="rating-stars">
             {/* Render filled and unfilled stars based on the rating */}
             {[...Array(5)].map((_, index) => (
-              <span key={index} className="star">
+              <span key={index} className="ratedstar">
                 {index < comment.rating ? "\u2605" : "\u2606"} {/* Filled star: ★, Unfilled star: ☆ */}
               </span>
             ))}
@@ -129,17 +129,19 @@ const Comments = ({ productId }) => {
         <h4>Add your Review</h4>
         <div>
           <label>Rating:</label>
-          <select
-            name="rating"
-            value={newComment.rating}
-            onChange={handleCommentChange}
-          >
+          <div className="star-rating">
+            {/* Render 5 clickable star icons */}
             {[...Array(5)].map((_, index) => (
-              <option key={index} value={index + 1}>
-                {index + 1} Star{index > 0 && "s"}
-              </option>
+              <span
+                key={index}
+                className={`star ${newComment.rating > index ? 'filled' : ''}`}
+                onClick={() => setNewComment({ ...newComment, rating: index + 1 })} // Set rating based on clicked star
+                style={{ cursor: "pointer" }}
+              >
+                ★
+              </span>
             ))}
-          </select>
+          </div>
         </div>
         <div>
           <label>Comment:</label>
@@ -158,7 +160,7 @@ const Comments = ({ productId }) => {
             onChange={handleImageUpload}
           />
         </div>
-        <Button title="Submit Review" onClick={handleSubmit} width='200px' />
+        <Button title="Submit Review" onClick={handleSubmit} width="200px" />
       </div>
 
       {/* Modal for empty comment validation */}
@@ -167,7 +169,7 @@ const Comments = ({ productId }) => {
           <div className="modal">
             <h4>Oops!</h4>
             <p>Please provide a rating and a comment before submitting your review.</p>
-            <Button title="Close" onClick={closeModal} width='100px' />
+            <Button title="Close" onClick={closeModal} width="100px" />
           </div>
         </div>
       )}

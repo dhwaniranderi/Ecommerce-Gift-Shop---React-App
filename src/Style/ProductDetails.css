@@ -180,6 +180,7 @@
 }
 
 .related-product-item {
+    text-align: center;
     background-color: #fff; /* White background for related products */
     border-radius: 12px; /* Rounded corners for each product item */
     padding: 20px; /* Padding inside each product item */
@@ -211,7 +212,7 @@
     font-size: 18px; /* Font size for the product name */
     color: #333; /* Dark color for the product name */
     margin: 10px 15px; /* Space around the product name */
-    text-align: left; /* Left-aligned product name */
+    text-align: center;
 }
 
 
@@ -247,3 +248,7 @@
     background-color: #f9f9f9;
   }
   
+  .Related-Products-title{
+    text-align: center;
+    font-size: larger;
+  }

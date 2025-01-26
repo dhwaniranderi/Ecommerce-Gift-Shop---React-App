@@ -4,58 +4,54 @@ import Header from '../Controller/Header';
 import Footer from '../Controller/Footer';
 import Button from '../Controller/CustomButton';
 import '../Style/CheckoutPage.css';
-import { useLocation, useNavigate } from 'react-router-dom'; // Import useLocation for accessing state
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
-  const location = useLocation(); // Get the location state
-  const { cartItems } = location.state || {}; // Extract cartItems from location.state
+  const location = useLocation();
+  const { cartItems, isLoggedIn } = location.state || {}; // Get the cartItems and isLoggedIn from location.state
   
   const [formData, setFormData] = useState({
     name: 'Admin',
-    email: 'admin@gail.com',
+    email: 'admin@gmail.com',
     address: '123 New Street, Kitchener, ON',
     cardNumber: '123456789009',
     expiryDate: '12/25',
     cvv: '123',
   });
-  const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate to navigate to different pages
 
-  // Handle changes in the form fields
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handle form submission (place order)
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowModal(true); // Show modal on order success
+    setShowModal(true);
   };
 
-  // Close the modal and navigate back to the home page
   const handleClose = () => {
     setShowModal(false);
-    navigate('/'); // Navigate to home page
+    navigate('/');
   };
 
-  // Calculate the total price by summing up each product's price multiplied by its quantity
   const calculateTotal = () => {
     return cartItems
       ? cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
-      : 0; // Calculate total price if cartItems are available
+      : 0;
   };
 
   return (
     <div className="new-checkout-container">
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <div className="new-checkout-header">
         <h1>Checkout</h1>
         <p>Complete your purchase by filling in your details below.</p>
       </div>
 
       <div className="checkout-grid">
-        {/* Product Summary in Card View */}
         <div className="product-summary-card">
           <h3>Your Order Summary</h3>
           <div className="product-summary-details">
@@ -63,10 +59,8 @@ const Checkout = () => {
               cartItems.map((product) => (
                 <div className="product-card" key={product.id}>
                   <div className="product-image">
-                    
                     <img src={product.imgSrc || './assets/default-product.jpg'} alt={product.name} />
                   </div>
-                  
                   <div className="product-info">
                     <span className="product-name">{product.name}</span>
                     <div className="product-quantity">Qty: {product.quantity}</div>
@@ -82,11 +76,10 @@ const Checkout = () => {
             )}
           </div>
           <div className="total-price">
-            <strong>Grand Total: ${calculateTotal()}</strong> {/* Display total price */}
+            <strong>Grand Total: ${calculateTotal()}</strong>
           </div>
         </div>
 
-        {/* Checkout Form in Card View */}
         <form className="new-checkout-form" onSubmit={handleSubmit}>
           <div className="new-form-group">
             <label>Name</label>
@@ -118,7 +111,6 @@ const Checkout = () => {
         </form>
       </div>
 
-      {/* Success Modal */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">

@@ -13,27 +13,14 @@ import Cart from '../Controller/cart'; // Import Cart component
 import ProductDetails from '../View/ProductDetails'; // Import ProductDetails component
 
 // Main content component of the app
-function AppContent() {
-  // State hooks to manage login status and popup visibility
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+function AppContent({ isLoggedIn, setIsLoggedIn }) {
   const [isLoginPopupOpen, setLoginPopupOpen] = useState(false);
-  
-  // useNavigate hook to programmatically navigate between routes
-  const navigate = useNavigate();
 
-  // Array of product data
-  const products = [
-    { ...ProductModel, id: 1, name: 'Comfortable Slippers', description: 'Soft and cozy slippers, perfect for lounging at home or as a thoughtful gift.', imgSrc: './assets/Product1.jpg', price: '$55.50' },
-    { ...ProductModel, id: 2, name: 'Decorative Lamp', description: 'Elegant and stylish lamp to brighten up any room, ideal for gifts or home decor.', imgSrc: './assets/Product2.jpg', price: '$14.50' },
-    { ...ProductModel, id: 3, name: 'Scented Candle', description: 'Aromatic candle with soothing scents, handmade by local artisans.', imgSrc: './assets/Product3.jpg', price: '$22.50' },
-    { ...ProductModel, id: 4, name: 'Gift Item 4', description: 'First gift item', imgSrc: './assets/Product6.jpg', price: '$25.50' },
-    { ...ProductModel, id: 5, name: 'Gift Item 5', description: 'Second gift item', imgSrc: './assets/Product4.jpg', price: '$15.20' },
-    { ...ProductModel, id: 6, name: 'Gift Item 6', description: 'Second gift item', imgSrc: './assets/Product5.jpg', price: '$22.50' },
-  ];
+  const navigate = useNavigate();
 
   // Function to open the login popup
   const openLoginPopup = () => {
-    setLoginPopupOpen(true);  
+    setLoginPopupOpen(true);
   };
 
   // Function to close the login popup
@@ -55,41 +42,89 @@ function AppContent() {
     }
   };
 
+  // Fallback to default products if ProductModel is not available or not an array
+  const products = Array.isArray(ProductModel) && ProductModel.length > 0
+    ? ProductModel
+    : [
+        {
+          id: 1,
+          name: 'Comfortable Slippers',
+          description: 'Soft and cozy slippers, perfect for lounging at home or as a thoughtful gift.',
+          imgSrc: './assets/Product1.jpg',
+          price: '$55.50',
+        },
+        {
+          id: 2,
+          name: 'Decorative Lamp',
+          description: 'Elegant and stylish lamp to brighten up any room, ideal for gifts or home decor.',
+          imgSrc: './assets/Product2.jpg',
+          price: '$14.50',
+        },
+        {
+          id: 3,
+          name: 'Scented Candle',
+          description: 'Aromatic candle with soothing scents, handmade by local artisans.',
+          imgSrc: './assets/Product3.jpg',
+          price: '$22.50',
+        },
+        {
+          id: 4,
+          name: 'Gift Item 4',
+          description: 'First gift item',
+          imgSrc: './assets/Product6.jpg',
+          price: '$25.50',
+        },
+        {
+          id: 5,
+          name: 'Gift Item 5',
+          description: 'Second gift item',
+          imgSrc: './assets/Product4.jpg',
+          price: '$15.20',
+        },
+        {
+          id: 6,
+          name: 'Gift Item 6',
+          description: 'Second gift item',
+          imgSrc: './assets/Product5.jpg',
+          price: '$22.50',
+        },
+      ];
+
   return (
-    <div className="App">    
-      {/* Render Header component, passing login status and functions */}
+    <div className="App">
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} openLoginPopup={openLoginPopup} />
       
-      {/* Render LoginPopup component if it's open */}
       <LoginPopup isOpen={isLoginPopupOpen} onClose={closeLoginPopup} onLoginSuccess={handleLoginSuccess} />
-      
-      {/* Product list section */}
+
       <div className="products-box">
         <div className="products-container">
           {/* Map through products array and render Product component for each item */}
-          {products.map((product) => (
-            <Product
-              key={product.id} // Pass the id to Product
-              id={product.id}
-              name={product.name}
-              description={product.description}
-              imgSrc={product.imgSrc}
-              price={product.price}
-              handleBuyNow={handleBuyNow} // Pass the handleBuyNow function to Product
-            />
-          ))}
+          {products.length > 0 ? (
+            products.map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                description={product.description}
+                imgSrc={product.imgSrc}
+                price={product.price}
+                handleBuyNow={handleBuyNow}
+              />
+            ))
+          ) : (
+            <p>No products available</p>
+          )}
         </div>
       </div>
       
-      {/* Render the "Why Choose Us" and "Customer Reviews" sections */}
       <div className="products-box">
         <CustomerReviews />
       </div>
+
       <div className="products-box">
         <WhyChooseUs />
       </div>
       
-      {/* Render Footer component */}
       <Footer />
     </div>
   );
@@ -97,14 +132,18 @@ function AppContent() {
 
 // Main App component which handles routing
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <Router>
-      {/* Define the routes and map them to their respective components */}
       <Routes>
-        <Route path="/" element={<AppContent />} /> {/* Route for the main content */}
-        <Route path="/checkout" element={<CheckoutPage />} /> {/* Route for checkout page */}
-        <Route path="/cart" element={<Cart  />} /> {/* Route for the cart page */}
-        <Route path="/product/:id" element={<ProductDetails />} />  {/* Route for product details, dynamic based on product id */}
+        <Route
+          path="/"
+          element={<AppContent isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route path="/checkout" element={<CheckoutPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/cart" element={<Cart isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/product/:id" element={<ProductDetails isLoggedIn={isLoggedIn} />} />
       </Routes>
     </Router>
   );

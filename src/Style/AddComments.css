@@ -33,10 +33,20 @@
     margin-bottom: 12px;           /* Space below the rating stars */
 }
 
-.star {
+.ratedstar {
     color: #ffd700;                /* Golden color for the stars */
     font-size: 18px;                /* Size of the stars */
 }
+
+.star {
+    font-size: 24px;
+    color: #ccc; /* Default color for empty stars */
+  }
+  
+  .star.filled {
+    color: #FFD700; /* Gold color for filled stars */
+  }
+  
 
 .review-rating {
     font-size: 14px;               /* Font size for the review rating text */
@@ -87,8 +97,9 @@
 
 /* Add Comment Form */
 .add-comment-form {
-    margin-top: 30px;              /* Space above the comment form */
-    background-color: #fff;        /* White background for the form */
+    margin-top: 30px;
+                  /* Space above the comment form */
+    background-color: transparent;        /* White background for the form */
     padding: 25px;                 /* Padding inside the form */
     border-radius: 12px;           /* Rounded corners for the form */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow for depth */
@@ -152,11 +163,6 @@
     margin-top: 10px;              /* Space above the button */
 }
 
-.add-comment-form button:hover {
-    background-color: #0056b3;     /* Darker blue on hover */
-    transform: translateY(-2px);   /* Slight upward movement on hover */
-}
-
 .modal-overlay {
     position: fixed;               /* Fix position to cover the entire viewport */
     top: 0;
@@ -190,9 +196,5 @@ button {
     background-color: #007bff;     /* Blue background for the button */
     color: white;                  /* White text color */
     border: none;                  /* No border */
-    cursor: pointer;              /* Pointer cursor on hover */
-}
-
-button:hover {
-    background-color: #0056b3;     /* Darker blue on hover */
+    cursor: pointer;             /* Pointer cursor on hover */
 }
