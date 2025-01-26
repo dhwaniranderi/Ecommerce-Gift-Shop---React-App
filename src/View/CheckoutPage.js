@@ -4,7 +4,7 @@ import Header from '../Controller/Header';
 import Footer from '../Controller/Footer';
 import Button from '../Controller/CustomButton';
 import '../Style/CheckoutPage.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 // Static product data (for demo purposes)
 const dummyProductData = [
@@ -26,6 +26,7 @@ const dummyProductData = [
   },
 ];
 
+// Dummy checkout data for pre-filling the form
 const dummyCheckoutData = {
   name: 'Admin',
   email: 'admin@gail.com',
@@ -36,34 +37,36 @@ const dummyCheckoutData = {
 };
 
 const Checkout = () => {
-  const [formData, setFormData] = useState(dummyCheckoutData);
-  const [showModal, setShowModal] = useState(false); // State for showing modal
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [formData, setFormData] = useState(dummyCheckoutData); // State to store form data
+  const [showModal, setShowModal] = useState(false); // State for showing success modal
+  const navigate = useNavigate(); // Initialize useNavigate to navigate to different pages
 
+  // Handle changes in the form fields
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value }); // Update corresponding form field
   };
 
+  // Handle form submission (place order)
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowModal(true); // Show modal on order success
   };
 
-  // Navigate to home page when modal is closed
+  // Close the modal and navigate back to the home page
   const handleClose = () => {
     setShowModal(false); // Close the modal
     navigate('/'); // Navigate to home page
   };
 
-  // Calculate total price
+  // Calculate the total price by summing up each product's price multiplied by its quantity
   const calculateTotal = () => {
     return dummyProductData.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
   };
 
   return (
     <div className="new-checkout-container">
-      <Header />
+      <Header /> {/* Render Header */}
       <div className="new-checkout-header">
         <h1>Checkout</h1>
         <p>Complete your purchase by filling in your details below.</p>
@@ -93,7 +96,7 @@ const Checkout = () => {
             ))}
           </div>
           <div className="total-price">
-            <strong>Total: ${calculateTotal()}</strong>
+            <strong>Total: ${calculateTotal()}</strong> {/* Display total price */}
           </div>
         </div>
 
@@ -125,7 +128,7 @@ const Checkout = () => {
               <input type="text" name="cvv" value={formData.cvv} onChange={handleChange} required />
             </div>
           </div>
-          <Button title="Place Order" width="200px" className="new-checkout-button" />
+          <Button title="Place Order" width="200px" className="new-checkout-button" /> {/* Custom Button to place order */}
         </form>
       </div>
 
@@ -140,7 +143,7 @@ const Checkout = () => {
         </div>
       )}
 
-      <Footer />
+      <Footer /> {/* Render Footer */}
     </div>
   );
 };

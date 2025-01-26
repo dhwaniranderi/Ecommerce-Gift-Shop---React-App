@@ -1,31 +1,31 @@
 /* Style for the popup container */
 .popup-container {
   position: relative; /* Positioning context for the cancel button */
-  width: 400px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Width of the popup container */
+  padding: 20px; /* Padding inside the popup */
+  background-color: white; /* Background color of the popup */
+  border-radius: 10px; /* Rounded corners for the popup */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
   /* other styles */
 }
 
 /* Style for the cancel button (cross inside a circle) */
 .cancel-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: absolute; /* Positioning relative to the popup container */
+  top: 10px; /* Position the cancel button 10px from the top */
+  right: 10px; /* Position the cancel button 10px from the right */
   background-color: #01012c; /* Circle background color */
   color: #ffcc00; /* Cross color */
   font-size: 30px; /* Larger font size for the cross */
-  border: none;
+  border: none; /* No border for the button */
   border-radius: 50%; /* Makes the button circular */
   width: 40px; /* Set the width of the circle */
   height: 40px; /* Set the height of the circle */
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center the cross in the circle */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: flex; /* Flexbox for centering the cross */
+  align-items: center; /* Center the cross vertically */
+  justify-content: center; /* Center the cross horizontally */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .cancel-btn:hover {
@@ -35,151 +35,148 @@
 
 /* Popup overlay style */
 .popup-overlay {
-  position: fixed;
+  position: fixed; /* Fixed positioning for overlay */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex; /* Use flexbox to center the popup */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensure the overlay is above other content */
+  animation: fadeIn 0.3s ease; /* Fade-in animation */
 }
-  
-  /* Header for the popup */
-  .popup-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Tab styles */
-  .tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .tabs button {
-    background-color: transparent;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-  }
-  
-  .tabs button.active {
-    border-bottom: 2px solid #007BFF;
-    color: #007BFF;
-  }
-  
-  .tabs button:hover {
-    color: #0056b3;
-  }
-  
-  /* Styling for form fields */
-  .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  .form-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input[type="email"],
-  input[type="password"] {
-    width: 90%;
-    padding: 12px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
-  }
-  
-  input[type="email"]:focus,
-  input[type="password"]:focus {
-    border-color: #007BFF;
-    outline: none;
-  }
-  
-  /* Submit button style */
-  .submit-btn {   
-    width: 100%;
-    display: inline-block;
-    background-color: #01012c;
-    color: white;
-    border-radius: 5px;
-    padding: 15px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    font-size: 16px;
-  }
-  
-  .submit-btn:hover {
-    /* background-color: #0056b3; */
-    background-color: #ffcc00; 
-    color: #000000;
-  }
-  
-  
-  /* Responsive Design */
-  @media (max-width: 400px) {
-    .popup-container {
-      width: 90%;
-    }
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideUp {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 
-  /* Add styles for the password input and the eye icon */
+/* Header for the popup */
+.popup-container h2 {
+  font-size: 24px; /* Font size for the header */
+  margin-bottom: 20px; /* Margin below the header */
+  font-family: Arial, sans-serif; /* Font for the header */
+}
+
+/* Tab styles */
+.tabs {
+  display: flex; /* Use flexbox to arrange tabs horizontally */
+  justify-content: center; /* Center the tabs */
+  margin-bottom: 20px; /* Margin below the tabs */
+}
+
+.tabs button {
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for the buttons */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin: 0 5px; /* Margin between buttons */
+}
+
+.tabs button.active {
+  border-bottom: 2px solid #007BFF; /* Blue underline for active tab */
+  color: #007BFF; /* Blue color for active tab */
+}
+
+.tabs button:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styling for form fields */
+.form-group {
+  margin-bottom: 15px; /* Margin below form fields */
+  text-align: left; /* Align label text to the left */
+}
+
+.form-group label {
+  display: block; /* Block display for labels */
+  font-size: 14px; /* Font size for labels */
+  font-weight: bold; /* Bold labels */
+  margin-bottom: 5px; /* Space below labels */
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 90%; /* Set width to 90% */
+  padding: 12px; /* Padding inside the input fields */
+  font-size: 14px; /* Font size */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners for inputs */
+  margin-top: 5px; /* Space above the inputs */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007BFF; /* Blue border on focus */
+  outline: none; /* Remove outline */
+}
+
+/* Submit button style */
+.submit-btn {
+  width: 100%; /* Full width button */
+  display: inline-block; /* Inline-block for layout */
+  background-color: #01012c; /* Background color */
+  color: white; /* Text color */
+  border-radius: 5px; /* Rounded corners */
+  padding: 15px; /* Padding inside the button */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  text-align: center; /* Center the text */
+  font-size: 16px; /* Font size */
+}
+
+.submit-btn:hover {
+  /* background-color: #0056b3; */
+  background-color: #ffcc00; /* Change background color on hover */
+  color: #000000; /* Change text color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .popup-container {
+    width: 90%; /* 90% width on smaller screens */
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start from transparent */
+  }
+  to {
+    opacity: 1; /* Fade to fully visible */
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px); /* Start from below */
+    opacity: 0; /* Start from transparent */
+  }
+  to {
+    transform: translateY(0); /* Slide up to original position */
+    opacity: 1; /* Fade in */
+  }
+}
+
+/* Add styles for the password input and the eye icon */
 .password-container {
-  position: relative;
-  width: 100%;
+  position: relative; /* Position the icon relative to the input field */
+  width: 100%; /* Full width container */
 }
 
 .password-container input {
-  width: calc(100% - 30px); /* Adjust the width to make space for the icon */
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 5px;
+  width: calc(100% - 30px); /* Adjust width to accommodate the icon */
+  padding: 10px; /* Padding inside the input field */
+  font-size: 14px; /* Font size */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 5px; /* Space above the input field */
 }
 
 .password-container i {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  font-size: 18px;
-  color: #888;
+  position: absolute; /* Position the icon absolutely */
+  top: 50%; /* Vertically center the icon */
+  right: 10px; /* Position icon 10px from the right */
+  transform: translateY(-50%); /* Adjust position to exactly center */
+  font-size: 18px; /* Icon font size */
+  color: #888; /* Icon color */
 }
-
-  

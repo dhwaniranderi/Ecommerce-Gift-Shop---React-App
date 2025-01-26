@@ -1,35 +1,44 @@
+/* Overlay for the alert popup */
 .alert-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1002; /* Ensure it appears on top of other content */
-  }
-  .alert-popup-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  .alert-popup-container h3 {
-    color: #FF0000; /* Red color for error */
-  }
-  .alert-popup-container p {
-    color: #333;
-    margin: 20px 0;
-  }
-  .close-alert-btn {
-    background-color: #01012C;
-    color: #FFCC00;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+  position: fixed; /* Fixed position to stay on top of the page */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background for focus */
+  display: flex; /* Flexbox to center the alert container */
+  justify-content: center; /* Horizontally centers the container */
+  align-items: center; /* Vertically centers the container */
+  z-index: 1002; /* Ensure the alert is on top of other content */
+}
+
+/* Container for the alert popup */
+.alert-popup-container {
+  background-color: #fff; /* White background */
+  padding: 30px; /* Padding around the content */
+  border-radius: 10px; /* Rounded corners */
+  width: 300px; /* Fixed width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  text-align: center; /* Center align the text inside the container */
+}
+
+/* Alert title with red color to signify importance */
+.alert-popup-container h3 {
+  color: #FF0000; /* Red color for error */
+}
+
+/* Message text inside the alert */
+.alert-popup-container p {
+  color: #333; /* Dark text for readability */
+  margin: 20px 0; /* Margin for spacing between the message and button */
+}
+
+/* Close button for the alert */
+.close-alert-btn {
+  background-color: #01012C; /* Dark background color for the button */
+  color: #FFCC00; /* Yellow text color for contrast */
+  padding: 10px 20px; /* Padding inside the button */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners for the button */
+}

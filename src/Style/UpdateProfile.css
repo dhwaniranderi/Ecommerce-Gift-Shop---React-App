@@ -1,143 +1,145 @@
 /* Styles for the popup overlay */
 .popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Background dimming */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001; /* Make sure it's above other content */
+  position: fixed; /* Fix the position relative to the viewport */
+  top: 0; /* Position at the top of the screen */
+  left: 0; /* Position at the left of the screen */
+  width: 100%; /* Full width of the viewport */
+  height: 100%; /* Full height of the viewport */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background for dimming effect */
+  display: flex; /* Use flexbox to center the popup */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1001; /* Ensure the overlay is above other content */
 }
 
 /* Popup container */
 .popup-container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 400px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #01012c;
+  background-color: #fff; /* White background for the popup */
+  padding: 20px; /* Padding inside the popup */
+  border-radius: 10px; /* Rounded corners */
+  width: 400px; /* Set a fixed width for the popup */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the popup */
+  color: #01012c; /* Dark blue text color */
 }
 
 /* Close button style */
 .close-btn {
-  background-color: #01012c;
-  color: #ffcc00;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  border-radius: 5px;
+  background-color: #01012c; /* Dark blue background for the button */
+  color: #ffcc00; /* Yellow text color */
+  padding: 10px 20px; /* Padding inside the button */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-top: 20px; /* Space between the button and the form */
+  border-radius: 5px; /* Rounded corners */
 }
 
 .close-btn:hover {
-  background-color: #ffcc00;
-  color: #01012c;
+  background-color: #ffcc00; /* Yellow background on hover */
+  color: #01012c; /* Dark blue text color on hover */
 }
 
+/* Styles for the form group */
 .form-group {
-  margin-bottom: 15px;
-  text-align: left;
+  margin-bottom: 15px; /* Space between form fields */
+  text-align: left; /* Align text to the left */
 }
 
+/* Label style for form inputs */
 .form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #01012c;
-
+  display: block; /* Display label as a block element */
+  font-size: 14px; /* Small font size for labels */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 5px; /* Space between label and input field */
+  color: #01012c; /* Dark blue color for label */
 }
 
+/* Styles for email and password input fields */
 input[type="email"],
 input[type="password"] {
-  width: 90%;
-  padding: 12px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 5px;
+  width: 90%; /* Set width to 90% of the container */
+  padding: 12px; /* Padding inside the input */
+  font-size: 14px; /* Font size for the input text */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 5px; /* Space above the input fields */
 }
 
+/* Focused input field style */
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #007BFF;
-  outline: none;
+  border-color: #007BFF; /* Blue border when focused */
+  outline: none; /* Remove the default outline */
 }
 
 /* Submit button style */
 .submit-btn {   
-  width: 100%;
-  display: inline-block;
-  background-color: #01012c;
-  color: white;
-  border-radius: 5px;
-  padding: 15px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  font-size: 16px;
+  width: 100%; /* Full width of the container */
+  display: inline-block; /* Make it an inline-block */
+  background-color: #01012c; /* Dark blue background */
+  color: white; /* White text color */
+  border-radius: 5px; /* Rounded corners */
+  padding: 15px; /* Padding inside the button */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Smooth background color change on hover */
+  text-align: center; /* Center the text */
+  font-size: 16px; /* Font size for the text */
 }
 
 .submit-btn:hover {
-  /* background-color: #0056b3; */
-  background-color: #ffcc00; 
-  color: #000000;
+  background-color: #ffcc00; /* Yellow background on hover */
+  color: #000000; /* Black text color on hover */
 }
-
 
 /* Responsive Design */
 @media (max-width: 400px) {
   .popup-container {
-    width: 90%;
+    width: 90%; /* Make the popup container take up 90% of the screen width on small screens */
   }
 }
 
 /* Animations */
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 0; /* Start with invisible */
   }
   to {
-    opacity: 1;
+    opacity: 1; /* End with fully visible */
   }
 }
 
 @keyframes slideUp {
   from {
-    transform: translateY(20px);
-    opacity: 0;
+    transform: translateY(20px); /* Start by sliding in from below */
+    opacity: 0; /* Start invisible */
   }
   to {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateY(0); /* End at the original position */
+    opacity: 1; /* End fully visible */
   }
 }
 
 /* Add styles for the password input and the eye icon */
 .password-container {
-position: relative;
-width: 100%;
+  position: relative; /* Relative positioning for the container */
+  width: 100%; /* Full width */
 }
 
+/* Styles for the password input field */
 .password-container input {
-width: calc(100% - 30px); /* Adjust the width to make space for the icon */
-padding: 10px;
-font-size: 14px;
-border: 1px solid #ccc;
-border-radius: 4px;
-margin-top: 5px;
+  width: calc(100% - 30px); /* Adjust the width to make space for the eye icon */
+  padding: 10px; /* Padding inside the input field */
+  font-size: 14px; /* Font size for the text */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 5px; /* Space above the input field */
 }
 
+/* Styles for the eye icon inside the password field */
 .password-container i {
-position: absolute;
-top: 50%;
-right: 10px;
-transform: translateY(-50%);
-font-size: 18px;
-color: #888;
+  position: absolute; /* Absolute positioning inside the container */
+  top: 50%; /* Vertically center the icon */
+  right: 10px; /* Position it 10px from the right */
+  transform: translateY(-50%); /* Adjust to center it perfectly */
+  font-size: 18px; /* Icon size */
+  color: #888; /* Light gray color for the icon */
 }
-

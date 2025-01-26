@@ -1,196 +1,215 @@
 /* General container for the cart */
 .new-cart-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px;
-    font-family: 'ubuntu', sans-serif;
-    background-color: #f4f4f4;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    max-width: 1200px; /* Sets the maximum width of the container */
+    margin: 0 auto; /* Centers the container horizontally */
+    padding: 30px; /* Adds padding inside the container */
+    font-family: 'ubuntu', sans-serif; /* Sets the font for the cart */
+    background-color: #f4f4f4; /* Light gray background */
+    border-radius: 15px; /* Rounds the corners of the container */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    overflow: hidden; /* Prevents overflow outside the container */
 }
 
 /* Header styles */
 .new-cart-header {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 20px;
-    background: linear-gradient(135deg, #01012c, #01012c);
-    color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centers the text inside the header */
+    margin-bottom: 30px; /* Adds space below the header */
+    padding: 20px; /* Adds padding inside the header */
+    background: linear-gradient(135deg, #01012c, #01012c); /* Gradient background for header */
+    color: #fff; /* White text color */
+    border-radius: 12px; /* Rounds the corners of the header */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a shadow under the header */
 }
 
 .new-cart-header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+    font-size: 2.8rem; /* Sets large font size for the main title */
+    margin-bottom: 10px; /* Adds space below the title */
+    text-transform: uppercase; /* Converts text to uppercase */
 }
 
 .new-cart-header p {
-    font-size: 1.3rem;
-    color: #f1f1f1;
+    font-size: 1.3rem; /* Sets font size for the description */
+    color: #f1f1f1; /* Light gray text for description */
 }
 
 /* Cart items section */
 .new-cart-items {
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* Adds space below the cart items section */
 }
 
+/* Individual cart item styling */
 .new-cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease-in-out;
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Vertically centers items */
+    justify-content: space-between; /* Distributes space between items */
+    background-color: #fff; /* White background for each cart item */
+    padding: 20px; /* Adds padding inside each cart item */
+    margin-bottom: 20px; /* Adds space below each item */
+    border-radius: 12px; /* Rounds the corners of each item */
+    border: 1px solid #e0e0e0; /* Light border around each item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effects */
 }
 
+/* Hover effect for cart items */
 .new-cart-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Moves the item up slightly */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Increases shadow on hover */
 }
 
+/* Cart item image styling */
 .new-cart-item img {
-    width: 90px;
-    height: 90px;
-    border-radius: 10px;
-    object-fit: cover;
+    width: 90px; /* Sets width of the image */
+    height: 90px; /* Sets height of the image */
+    border-radius: 10px; /* Rounds the corners of the image */
+    object-fit: cover; /* Ensures image covers the space without stretching */
 }
 
+/* Details for each cart item */
 .new-item-details {
-    flex: 1;
-    margin-left: 20px;
+    flex: 1; /* Allows the details to take remaining space */
+    margin-left: 20px; /* Adds space to the left of the details */
 }
 
+/* Cart item title styling */
 .new-item-details h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: #333;
+    font-size: 1.5rem; /* Sets font size for the title */
+    margin-bottom: 5px; /* Adds space below the title */
+    color: #333; /* Dark text color for the title */
 }
 
+/* Cart item description styling */
 .new-item-details p {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.2rem; /* Sets font size for the description */
+    color: #666; /* Medium gray text color */
 }
 
+/* Remove item button styling */
 .new-cart-item button {
-    background-color: #DC3545;
-    color: #fff;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    background-color: #DC3545; /* Red background for the button */
+    color: #fff; /* White text on the button */
+    border: none; /* Removes default border */
+    padding: 12px 18px; /* Adds padding inside the button */
+    border-radius: 8px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 1.1rem; /* Sets font size for the button text */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
+/* Hover effect for remove button */
 .new-cart-item button:hover {
-    background-color: #C82333;
-    transform: scale(1.05);
+    background-color: #C82333; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
 
+/* Empty cart message styling */
 .new-cart-items p {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #999;
-    font-weight: bold;
-    margin-top: 20px;
+    text-align: center; /* Centers the message */
+    font-size: 1.8rem; /* Sets font size for the message */
+    color: #999; /* Light gray color for the message */
+    font-weight: bold; /* Makes the message bold */
+    margin-top: 20px; /* Adds space above the message */
 }
 
 /* Total price section */
 .new-total-price {
-    text-align: right;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: right; /* Aligns the total price to the right */
+    margin-top: 30px; /* Adds space above the section */
+    padding: 20px; /* Adds padding inside the section */
+    background-color: #f9f9f9; /* Light background for the total price */
+    border-radius: 12px; /* Rounds the corners of the section */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
 }
 
+/* Total price heading styling */
 .new-total-price h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 15px;
+    font-size: 1.8rem; /* Sets font size for the heading */
+    color: #333; /* Dark color for the heading */
+    margin-bottom: 15px; /* Adds space below the heading */
 }
 
+/* Checkout button styling */
 .new-checkout-button {
-    background: linear-gradient(135deg, #007BFF, #0056B3);
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 1.3rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #007BFF, #0056B3); /* Gradient background for the button */
+    color: #fff; /* White text on the button */
+    border: none; /* Removes default border */
+    padding: 12px 25px; /* Adds padding inside the button */
+    border-radius: 8px; /* Rounds the corners of the button */
+    font-size: 1.3rem; /* Sets font size for the button text */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
+/* Hover effect for checkout button */
 .new-checkout-button:hover {
-    background-color: #0056B3;
-    transform: scale(1.05);
+    background-color: #0056B3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
 
 /* Product list section */
 .new-product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin: 40px 0;
-    justify-content: center;
+    display: flex; /* Uses flexbox layout */
+    flex-wrap: wrap; /* Allows wrapping of products to the next line */
+    gap: 30px; /* Adds space between products */
+    margin: 40px 0; /* Adds space above and below the product list */
+    justify-content: center; /* Centers the products horizontally */
 }
 
+/* Individual product styling */
 .new-product {
-    padding: 25px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e0e0e0;
-    width: 320px;
+    padding: 25px; /* Adds padding inside each product */
+    text-align: center; /* Centers text inside the product */
+    background-color: #fff; /* White background for each product */
+    border-radius: 15px; /* Rounds the corners of the product */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    border: 1px solid #e0e0e0; /* Light border around the product */
+    width: 320px; /* Sets fixed width for each product */
 }
 
+/* Hover effect for product */
 .new-product:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px); /* Moves the product up slightly */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Increases shadow on hover */
 }
 
+/* Product image styling */
 .new-product img {
-    width: 100%;
-    height: 280px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-bottom: 15px;
+    width: 100%; /* Makes the image width 100% of the product container */
+    height: 280px; /* Sets fixed height for the image */
+    border-radius: 12px; /* Rounds the corners of the image */
+    object-fit: cover; /* Ensures image covers the space without stretching */
+    margin-bottom: 15px; /* Adds space below the image */
 }
 
+/* Product title styling */
 .new-product h4 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 1.6rem; /* Sets font size for the title */
+    margin-bottom: 10px; /* Adds space below the title */
+    color: #333; /* Dark text color for the title */
 }
 
+/* Product description styling */
 .new-product p {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 15px;
+    font-size: 1.2rem; /* Sets font size for the description */
+    color: #666; /* Medium gray color for the description */
+    margin-bottom: 15px; /* Adds space below the description */
 }
 
+/* Add to cart button styling */
 .new-product button {
-    background-color: #28A745;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    width: 100%;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    background-color: #28A745; /* Green background for the button */
+    color: #fff; /* White text on the button */
+    border: none; /* Removes default border */
+    padding: 12px 20px; /* Adds padding inside the button */
+    border-radius: 8px; /* Rounds the corners of the button */
+    width: 100%; /* Makes the button full width */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
+/* Hover effect for add to cart button */
 .new-product button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
 }

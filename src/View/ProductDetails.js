@@ -7,89 +7,90 @@ import Footer from "../Controller/Footer";
 import AddComments from "../Controller/AddComments";
 
 const ProductDetails = () => {
-  const { id } = useParams(); // Get the product ID from the URL
-  const navigate = useNavigate();
+  const { id } = useParams(); // Get the product ID from the URL using useParams hook
+  const navigate = useNavigate(); // Initialize useNavigate hook to navigate between pages
 
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState(null); // State to store the fetched product details
 
   useEffect(() => {
     // Fetch the product details using the ID from URL
-    // In a real app, this would be a fetch call to an API
+    // In a real app, this would be a fetch call to an API or database
     const productData = [
-        {
-          id: 1,
-          name: "Comfortable Slippers",
-          description: "Soft and cozy slippers, perfect for lounging at home or as a thoughtful gift.",
-          price: "$55.50",
-          imgSrc: "../assets/Product1.jpg",
-        },
-        {
-          id: 2,
-          name: "Decorative Lamp",
-          description: "Elegant and stylish lamp to brighten up any room, ideal for gifts or home decor.",
-          price: "$14.50",
-          imgSrc: "../assets/Product2.jpg",
-        },
-        {
-          id: 3,
-          name: "Scented Candle",
-          description: "Aromatic candle with soothing scents, handmade by local artisans.",
-          price: "$22.50",
-          imgSrc: "../assets/Product3.jpg",
-        },
-        {
-          id: 4,
-          name: "Gift Item 4",
-          description: "First gift item",
-          price: "$25.50",
-          imgSrc: "../assets/Product6.jpg",
-        },
-        {
-          id: 5,
-          name: "Gift Item 5",
-          description: "Second gift item",
-          price: "$15.20",
-          imgSrc: "../assets/Product4.jpg",
-        },
-        {
-          id: 6,
-          name: "Gift Item 6",
-          description: "Second gift item",
-          price: "$22.50",
-          imgSrc: "../assets/Product5.jpg",
-        },
-      ];
-      
+      {
+        id: 1,
+        name: "Comfortable Slippers",
+        description: "Soft and cozy slippers, perfect for lounging at home or as a thoughtful gift.",
+        price: "$55.50",
+        imgSrc: "../assets/Product1.jpg",
+      },
+      {
+        id: 2,
+        name: "Decorative Lamp",
+        description: "Elegant and stylish lamp to brighten up any room, ideal for gifts or home decor.",
+        price: "$14.50",
+        imgSrc: "../assets/Product2.jpg",
+      },
+      {
+        id: 3,
+        name: "Scented Candle",
+        description: "Aromatic candle with soothing scents, handmade by local artisans.",
+        price: "$22.50",
+        imgSrc: "../assets/Product3.jpg",
+      },
+      {
+        id: 4,
+        name: "Gift Item 4",
+        description: "First gift item",
+        price: "$25.50",
+        imgSrc: "../assets/Product6.jpg",
+      },
+      {
+        id: 5,
+        name: "Gift Item 5",
+        description: "Second gift item",
+        price: "$15.20",
+        imgSrc: "../assets/Product4.jpg",
+      },
+      {
+        id: 6,
+        name: "Gift Item 6",
+        description: "Second gift item",
+        price: "$22.50",
+        imgSrc: "../assets/Product5.jpg",
+      },
+    ];
 
+    // Find the product by matching the ID from the URL
     const productDetail = productData.find(
       (product) => product.id === parseInt(id)
     );
-    setProduct(productDetail);
+    setProduct(productDetail); // Set the found product as the state
   }, [id]);
 
   // Function to handle "Add to Cart" button click
   const handleAddToCart = () => {
-    navigate("/cart"); // Navigate to the Cart page
+    navigate("/cart"); // Navigate to the Cart page when clicked
   };
 
   if (!product) {
-    return <div>Loading...</div>; // Show loading until product is fetched
+    return <div>Loading...</div>; // Show loading message if product is not yet fetched
   }
 
   return (
     <div>
-      <Header />
+      <Header /> {/* Display the header of the page */}
 
       <div className="product-container">
+        {/* Product Detail Section */}
         <div className="product-detail-section">
           <div className="product-image-section">
-            <img src={product.imgSrc} alt={product.name} />
+            <img src={product.imgSrc} alt={product.name} /> {/* Display product image */}
           </div>
           <div className="product-info-section">
-            <h2 className="product-title">{product.name}</h2>
-            <p className="product-description-text">{product.description}</p>
-            <p className="product-price-text">{product.price}</p>
-            <Button title="Add to cart" onClick={handleAddToCart} />
+            <h2 className="product-title">{product.name}</h2> {/* Display product name */}
+            <p className="product-description-text">{product.description}</p> {/* Display product description */}
+            <p className="product-price-text">{product.price}</p> {/* Display product price */}
+            <Button title="Add to cart" onClick={handleAddToCart} /> {/* Add to cart button */}
           </div>
         </div>
 
@@ -109,17 +110,17 @@ const ProductDetails = () => {
         <div className="product-specs">
           <h3>Specifications</h3>
           <ul>
-            <li>Dimensions: 10 x 5 x 2 inches</li>
-            <li>Weight: 1.5 lbs</li>
-            <li>Material: High-quality fabric</li>
-            <li>Color: Assorted</li>
+            <li>Dimensions: 10 x 5 x 2 inches</li> {/* Product dimension */}
+            <li>Weight: 1.5 lbs</li> {/* Product weight */}
+            <li>Material: High-quality fabric</li> {/* Material used */}
+            <li>Color: Assorted</li> {/* Available colors */}
             <li>
               Suitable for: All occasions (Birthdays, Anniversaries, Holidays)
-            </li>
+            </li> {/* Suggested use cases */}
             <li>
               Package Includes: Gift Box, Greeting Card, Decorative Ribbon
-            </li>
-            <li>Care Instructions: Spot clean only</li>
+            </li> {/* Included accessories */}
+            <li>Care Instructions: Spot clean only</li> {/* Care instructions */}
           </ul>
         </div>
 
@@ -136,15 +137,16 @@ const ProductDetails = () => {
           </ul>
         </div>
 
-        <AddComments/>
+        <AddComments/> {/* Display the comment section for product reviews */}
 
         {/* Related Products Section */}
         <div className="related-products-section">
+          {/* Display related product items */}
           <div className="related-product-item">
             <img src="../assets/Product2.jpg" alt="Gift Item 2" />
             <h4>Gift Item 2</h4>
             <p className="related-product-price">$30.00</p>
-            <Button title="Add to cart" onClick={handleAddToCart} />
+            <Button title="Add to cart" onClick={handleAddToCart} /> {/* Add to cart for related items */}
           </div>
           <div className="related-product-item">
             <img src="../assets/Product3.jpg" alt="Gift Item 3" />
@@ -166,7 +168,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer /> {/* Display the footer of the page */}
     </div>
   );
 };

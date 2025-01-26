@@ -2,138 +2,155 @@
 
 /* Styling for the header */
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0px;
-  background-color: #01012C;
-  color: #FFCC00;
-  position: fixed; /* Fixed positioning */
-  top: 0; /* Sticks the header to the top */
+  display: flex; /* Flexbox layout to align child elements */
+  justify-content: space-between; /* Space between logo and navigation */
+  align-items: center; /* Vertically center items */
+  padding: 20px 0px; /* Adds vertical padding to the header */
+  background-color: #01012C; /* Dark background color for the header */
+  color: #FFCC00; /* Yellow text color */
+  position: fixed; /* Fixed positioning to keep the header at the top */
+  top: 0; /* Sticks the header to the top of the page */
   left: 0;
-  width: 100%; /* Ensures the header spans the entire width */
+  width: 100%; /* Ensures the header spans the entire width of the page */
   z-index: 1000; /* Ensures the header stays above other content */
-   }
+}
+
+/* Adds space below the header to prevent content from overlapping */
 body {
-margin-top: 120px; /* Add space below the header, adjust value to your header height */
+  margin-top: 120px; /* Adjust space below the header */
 }
   
-  .site-header .logo h2 {
-    margin: 0;
-    font-size: 24px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .site-header nav {
-    display: flex;
-  }
-  
-  .site-header .nav-links {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-  }
-  
-  .site-header .nav-links li {
-    display: inline-block;
-  }
-  
-  .site-header .nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-  
-  .site-header .nav-links li a:hover {
-    color: #ffcc00; /* Change color on hover */
-  }
-  
-  .site-header .login-button button {
-    padding: 10px 20px;
-    background-color: #ffcc00;
-    color: #01012c;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .site-header .login-button button:hover {
-    background-color: #FFFFFF;
-    color:#01012c;
-  }
+/* Styling for the logo in the header */
+.site-header .logo h2 {
+  margin: 0; /* Removes default margin */
+  font-size: 24px; /* Sets the font size for the logo */
+  font-family: 'Arial', sans-serif; /* Specifies the font family for the logo */
+}
 
+/* Styling for the navigation menu */
+.site-header nav {
+  display: flex; /* Uses flexbox to align navigation items */
+}
+
+/* Styling for the navigation links */
+.site-header .nav-links {
+  list-style-type: none; /* Removes bullet points from list */
+  display: flex; /* Displays links in a horizontal row */
+  gap: 20px; /* Adds space between each link */
+  margin: 0; /* Removes default margin */
+}
+
+/* Styling for individual list items in the navigation */
+.site-header .nav-links li {
+  display: inline-block; /* Makes each list item inline */
+}
+
+/* Styling for the anchor tags in the navigation */
+.site-header .nav-links li a {
+  color: white; /* White text color */
+  text-decoration: none; /* Removes underline */
+  font-size: 18px; /* Sets the font size */
+  transition: color 0.3s ease; /* Adds a smooth color transition on hover */
+}
+
+/* Change color on hover */
+.site-header .nav-links li a:hover {
+  color: #ffcc00; /* Changes color on hover */
+}
+
+/* Styling for the login button in the header */
+.site-header .login-button button {
+  padding: 10px 20px; /* Adds padding inside the button */
+  background-color: #ffcc00; /* Yellow background color */
+  color: #01012c; /* Dark text color */
+  border: none; /* Removes border */
+  border-radius: 5px; /* Rounds the corners of the button */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  font-size: 16px; /* Sets font size */
+  transition: background-color 0.3s ease; /* Adds transition effect on hover */
+}
+
+/* Hover effect for the login button */
+.site-header .login-button button:hover {
+  background-color: #FFFFFF; /* Changes the background color on hover */
+  color: #01012c; /* Changes the text color on hover */
+}
 
 /* Welcome Message and Profile Icon CSS */
-/* Add this to your CSS file (e.g., Header.css) */
+/* Section for logged-in user display */
 .logged-in-section {
-  display: flex;
-  align-items: center;
-  position: relative; /* Important to position the dropdown menu relative to this container */
+  display: flex; /* Uses flexbox to align the welcome message and profile icon */
+  align-items: center; /* Vertically centers items */
+  position: relative; /* Necessary for positioning the dropdown menu */
 }
 
+/* Styling for the welcome message */
 .welcome-message {
-  margin-right: 10px;
-  font-size: 16px;
-  color: #ffcc00;
-  cursor: pointer; /* Make it clear the user can click on it */
+  margin-right: 10px; /* Adds space between the message and the profile icon */
+  font-size: 16px; /* Sets font size */
+  color: #ffcc00; /* Yellow text color */
+  cursor: pointer; /* Changes the cursor to indicate it’s clickable */
 }
 
+/* Styling for the profile icon */
 .profile-icon {
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  border-radius: 50%; /* This makes the container a circle */
-  background-color: #01012c; /* Background color for the circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffcc00; /* Icon color */
-  font-size: 20px; /* Adjust icon size */
-  cursor: pointer;
+  width: 40px; /* Sets the width of the profile icon */
+  height: 40px; /* Sets the height of the profile icon */
+  border-radius: 50%; /* Makes the profile icon circular */
+  background-color: #01012c; /* Dark background for the icon */
+  display: flex; /* Uses flexbox to center the icon inside */
+  align-items: center; /* Centers the icon vertically */
+  justify-content: center; /* Centers the icon horizontally */
+  color: #ffcc00; /* Yellow color for the icon */
+  font-size: 20px; /* Sets the font size for the icon */
+  cursor: pointer; /* Makes it clickable */
 }
 
-.profile-icon:hover{
-  background-color: #ffcc00; /* Change color on hover */
-  color: #01012c; /* Change icon color on hover */
+/* Hover effect for the profile icon */
+.profile-icon:hover {
+  background-color: #ffcc00; /* Changes the background color on hover */
+  color: #01012c; /* Changes icon color on hover */
 }
 
 /* Dropdown menu styles */
 .dropdown-menu {
-  position: absolute;
-  top: 65px; /* Adjust based on your layout */
-  right: 0; /* Position dropdown aligned with the right side */
-  background-color: #01012c;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  padding: 10px 0;
-  width: 200px;
-  text-align: left;
+  position: absolute; /* Positions the dropdown menu absolutely */
+  top: 65px; /* Positions the dropdown below the profile icon */
+  right: 0; /* Aligns the dropdown to the right */
+  background-color: #01012c; /* Dark background color for the dropdown */
+  border-radius: 8px; /* Rounds the corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds shadow to the dropdown */
+  z-index: 10; /* Ensures the dropdown appears above other content */
+  padding: 10px 0; /* Adds vertical padding */
+  width: 200px; /* Sets the width of the dropdown */
+  text-align: left; /* Aligns the dropdown items to the left */
 }
 
+/* Styling for the list inside the dropdown */
 .dropdown-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; /* Removes bullet points */
+  padding: 0; /* Removes padding */
+  margin: 0; /* Removes margin */
 }
 
+/* Styling for individual items in the dropdown */
 .dropdown-menu li {
-  padding: 8px 20px;
+  padding: 8px 20px; /* Adds padding inside each list item */
 }
 
+/* Styling for the anchor links inside the dropdown */
 .dropdown-menu li a {
-  text-decoration: none;
-  color: #ffcc00;
-  font-size: 16px;
+  text-decoration: none; /* Removes underline */
+  color: #ffcc00; /* Yellow text color */
+  font-size: 16px; /* Sets font size */
 }
 
+/* Hover effect for dropdown items */
 .dropdown-menu li:hover {
-  background-color: #ffcc00;
+  background-color: #ffcc00; /* Changes background color on hover */
 }
 
+/* Changes the color of links on hover inside the dropdown */
 .dropdown-menu li:hover a {
-  color: #01012c;
+  color: #01012c; /* Changes text color to dark on hover */
 }

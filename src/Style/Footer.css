@@ -1,19 +1,15 @@
+/* Footer Section Styling */
 .footer {
-    background-color: #01012C;
-    color: #FFCC00;
-    text-align: center;
-    padding: 20px 0;
-    bottom: 0;
-    width: 100%;
-  }
-  .footer p {
-    margin: 0;
-    font-size: 14px;
-  }
-  
-  
-  
-  
-  
-  
-  
+  background-color: #01012C; /* Sets the background color of the footer to dark blue */
+  color: #FFCC00; /* Sets the text color to yellow */
+  text-align: center; /* Centers the text inside the footer */
+  padding: 20px 0; /* Adds vertical padding (top and bottom) of 20px for spacing */
+  bottom: 0; /* Positions the footer at the bottom of the page */
+  width: 100%; /* Makes the footer span the full width of the page */
+}
+
+/* Footer Paragraph Styling */
+.footer p {
+  margin: 0; /* Removes default margin around the paragraph */
+  font-size: 14px; /* Sets the font size of the paragraph text to 14px */
+}

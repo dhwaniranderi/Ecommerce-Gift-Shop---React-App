@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import Button from "../Controller/CustomButton";
-import "../Style/AddComments.css";
-import image from '../Assests/Product1.jpg';
+import React, { useState } from "react"; // Import React and useState for state management
+import Button from "../Controller/CustomButton"; // Import a custom button component
+import "../Style/AddComments.css"; // Import CSS for styling
+import image from '../Assests/Product1.jpg'; // Import an image for displaying in comments
 
 const Comments = ({ productId }) => {
+  // State to manage the list of comments
   const [comments, setComments] = useState([
     {
       id: 3,
       name: "Dhwani R.",
       rating: 4,
       text: "I bought this for my friend's birthday, and she loved it! High quality and great design.",
-      image: image,
+      image: image, // Optional image associated with the comment
     },
+    // Additional predefined comments
     {
       id: 4,
       name: "Yash S.",
@@ -38,64 +40,76 @@ const Comments = ({ productId }) => {
     },
   ]);
 
+  // State for managing new comment input
   const [newComment, setNewComment] = useState({
-    rating: 1,
-    text: "",
-    image: null,
+    rating: 1, // Default rating
+    text: "", // Comment text
+    image: null, // Optional image
   });
 
-  const [showModal, setShowModal] = useState(false); // To control the visibility of the modal
+  const [showModal, setShowModal] = useState(false); // Modal visibility state
 
+  // Update newComment state when input fields change
   const handleCommentChange = (e) => {
     setNewComment({
       ...newComment,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value, // Dynamically update the property
     });
   };
 
+  // Handle image upload and set its preview URL
   const handleImageUpload = (e) => {
     setNewComment({
       ...newComment,
-      image: URL.createObjectURL(e.target.files[0]),
+      image: URL.createObjectURL(e.target.files[0]), // Create a temporary URL for the image
     });
   };
 
+  // Handle form submission
   const handleSubmit = () => {
-    // Validation to ensure that rating and comment text are not empty
+    // Ensure both rating and comment text are provided
     if (newComment.rating === 0 || newComment.text.trim() === "") {
-      setShowModal(true); // Show modal when validation fails
+      setShowModal(true); // Show error modal if validation fails
       return;
     }
 
+    // Create a new comment object
     const commentData = {
-      id: comments.length + 1,
-      name: "Admin", // This should be dynamic based on the logged-in user
+      id: comments.length + 1, // Generate unique ID
+      name: "Admin", // Placeholder name, can be dynamic based on logged-in user
       rating: newComment.rating,
       text: newComment.text,
       image: newComment.image,
     };
-    
+
+    // Add the new comment to the comments list
     setComments([...comments, commentData]);
+
+    // Reset the newComment state
     setNewComment({ rating: 1, text: "", image: null });
   };
 
+  // Delete a comment by its ID
   const handleDelete = (id) => {
-    setComments(comments.filter(comment => comment.id !== id));
+    setComments(comments.filter(comment => comment.id !== id)); // Filter out the deleted comment
   };
 
+  // Close the error modal
   const closeModal = () => {
-    setShowModal(false); // Close modal when the user acknowledges
+    setShowModal(false);
   };
 
   return (
     <div className="comments-section">
       <h3>Customer Reviews</h3>
       {comments.map((comment) => (
+        // Display each comment with rating, text, and optional image
         <div key={comment.id} className="review-item">
           <div className="rating-stars">
+            {/* Render filled and unfilled stars based on the rating */}
             {[...Array(5)].map((_, index) => (
               <span key={index} className="star">
-                {index < comment.rating ? "\u2605" : "\u2606"}
+                {index < comment.rating ? "\u2605" : "\u2606"} {/* Filled star: ★, Unfilled star: ☆ */}
               </span>
             ))}
             <span className="review-rating">({comment.rating}.0)</span>
@@ -103,12 +117,14 @@ const Comments = ({ productId }) => {
           <p className="review-text">"{comment.text}"</p>
           <p className="review-author">- {comment.name}</p>
           {comment.image && <img src={comment.image} alt="review" className="review-image" />}
+          {/* Show delete button only for Admin comments */}
           {comment.name === "Admin" && (
             <button className="delete-btn" onClick={() => handleDelete(comment.id)}>Delete</button>
           )}
         </div>
       ))}
 
+      {/* Form for adding a new comment */}
       <div className="add-comment-form">
         <h4>Add your Review</h4>
         <div>
@@ -142,16 +158,16 @@ const Comments = ({ productId }) => {
             onChange={handleImageUpload}
           />
         </div>
-        <Button title="Submit Review" onClick={handleSubmit} width='200px'/>
+        <Button title="Submit Review" onClick={handleSubmit} width='200px' />
       </div>
 
-      {/* Modal for empty comment acknowledgement */}
+      {/* Modal for empty comment validation */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal">
             <h4>Oops!</h4>
             <p>Please provide a rating and a comment before submitting your review.</p>
-            <Button title="Close" onClick={closeModal} width='100px'/>
+            <Button title="Close" onClick={closeModal} width='100px' />
           </div>
         </div>
       )}
