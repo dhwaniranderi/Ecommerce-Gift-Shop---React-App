@@ -10,6 +10,7 @@ import WhyChooseUs from '../Controller/WhyChooseUs';
 import CustomerReviews from '../Controller/CustomerReviews';
 import CheckoutPage from '../View/CheckoutPage';
 import Cart from '../Controller/cart';
+import ProductDetails from '../View/ProductDetails'; // Import ProductDetails
 
 function AppContent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,6 +56,7 @@ function AppContent() {
           {products.map((product) => (
             <Product
               key={product.id}
+              id={product.id} // Pass the id to Product
               name={product.name}
               description={product.description}
               imgSrc={product.imgSrc}
@@ -81,7 +83,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AppContent />} />
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:id" element={<ProductDetails />} />  {/* Route for product details */}
       </Routes>
     </Router>
   );

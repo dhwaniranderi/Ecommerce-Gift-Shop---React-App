@@ -1,0 +1,215 @@
+/* Overall container for the product */
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Main product details section */
+.product-detail-section {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.product-image-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image-section img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-info-section {
+    flex: 1;
+    text-align: left; /* Left-aligned text */
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left; /* Left-aligned title */
+}
+
+.product-description-text {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left; /* Left-aligned text */
+}
+
+.product-price-text {
+    font-size: 24px;
+    color: #28a745;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.add-to-cart-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Product specifications and features */
+.product-specs,
+.product-features-section {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.product-specs h3,
+.product-features-section h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #007bff;
+    text-align: left; /* Left-aligned heading */
+}
+
+.product-specs ul,
+.product-features-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-specs li,
+.product-features-section li {
+    margin: 10px 0;
+    color: #555;
+    font-size: 15px;
+    padding-left: 20px;
+    position: relative;
+    text-align: left; /* Left-aligned list items */
+}
+
+.product-specs li::before,
+.product-features-section li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-size: 18px;
+}
+
+/* Reviews section */
+.reviews-section {
+    margin-top: 30px;
+}
+
+.review-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.review-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rating-stars {
+    margin-bottom: 12px;
+}
+
+.star {
+    color: #ffd700;
+    font-size: 18px;
+}
+
+.review-rating {
+    font-size: 14px;
+    color: #555;
+    margin-left: 10px;
+}
+
+.review-text {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    text-align: left; /* Left-aligned review text */
+}
+
+.review-author {
+    font-size: 14px;
+    color: #777;
+    text-align: right;
+}
+
+/* Related products section */
+.related-products-section {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.related-product-item {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.related-product-item:hover {
+    transform: scale(1.05);
+}
+
+.related-product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.related-product-price {
+    font-size: 20px;
+    color: #28a745;
+    font-weight: 900;
+    margin: 15px;
+    text-align: center;
+}
+
+.related-product-item h4 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 15px;
+    text-align: left; /* Left-aligned product name */
+}
