@@ -4,6 +4,7 @@ import Button from "../Controller/CustomButton";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../Controller/Header";
 import Footer from "../Controller/Footer";
+import AddComments from "../Controller/AddComments";
 
 const ProductDetails = () => {
   const { id } = useParams(); // Get the product ID from the URL
@@ -135,8 +136,7 @@ const ProductDetails = () => {
           </ul>
         </div>
 
-        {/* Customer Reviews Section */}
-        <div className="reviews-section">
+        {/* <div className="reviews-section">
           <h3>Customer Reviews</h3>
           <div className="review-item">
             <div className="rating-stars">
@@ -182,7 +182,6 @@ const ProductDetails = () => {
             </p>
             <p className="review-author">- Jasjit S.</p>
           </div>
-          {/* Additional Fake Reviews */}
           <div className="review-item">
             <div className="rating-stars">
               <span className="star">&#9733;</span>
@@ -213,7 +212,10 @@ const ProductDetails = () => {
             </p>
             <p className="review-author">- Poojan</p>
           </div>
-        </div>
+          <AddComments/>
+        </div> */}
+
+        <AddComments/>
 
         {/* Related Products Section */}
         <div className="related-products-section">
