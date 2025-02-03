@@ -41,10 +41,10 @@ const ProductDetails = ({ isLoggedIn }) => {
 
   // Function to handle "Add to Cart" button click
   const handleAddToCart = () => {
-    if (!isLoggedIn) {
-      navigate("/login");
-      return;
-    }
+    // if (!isLoggedIn) {
+    //   navigate("/login");
+    //   return;
+    // }
 
     navigate("/cart", {
       state: {
@@ -86,14 +86,7 @@ const ProductDetails = ({ isLoggedIn }) => {
           </div>
         </div>
 
-        {/* If user is not logged in, show a login prompt */}
-        {!isLoggedIn && (
-          <div className="login-prompt">
-            <p>You must be logged in to add items to the cart.</p>
-            <Button title="Login" onClick={() => navigate('/login')} />
-          </div>
-        )}
-
+      
         {/* Additional Product Information */}
         <div className="product-additional-info">
           <h3>Why Choose {product.name}?</h3>
